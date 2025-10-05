@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standards Library | Launch Agency</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #C62828; /* Dark Red */
+            --secondary: #2E7D32; /* Dark Green */
+            --accent: #4CAF50; /* Medium Green */
+            --dark: #212121;
+            --light: #F5F5F5;
+            --gray: #757575;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .cta-button:hover {
+            background-color: #B71C1C;
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            text-align: center;
+            background: linear-gradient(135deg, #FFEBEE 0%, #E8F5E9 100%);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero .accent {
+            color: var(--primary);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--gray);
+        }
+        
+        /* Standards Library Section */
+        .library {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .standards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .standard-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .standard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        
+        .standard-header {
+            background: linear-gradient(135deg, var(--primary), #D32F2F);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .standard-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .standard-header p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+        
+        .standard-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .standard-description {
+            margin-bottom: 25px;
+            color: var(--gray);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .standard-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+        
+        .action-btn {
+            background-color: rgba(198, 40, 40, 0.1);
+            color: var(--primary);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+            justify-content: center;
+            margin: 0 5px;
+        }
+        
+        .action-btn:first-child {
+            margin-left: 0;
+        }
+        
+        .action-btn:last-child {
+            margin-right: 0;
+        }
+        
+        .action-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .action-btn i {
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: #b0b3c5;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            background-color: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #b0b3c5;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .standards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .standard-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .action-btn {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="pm_index.html" class="logo">Launch</a>
+                <ul class="nav-links">
+                    <li><a href="pm_library.html" class="active">Standards Library</a></li>
+                    <li><a href="pm_comparison.html">Comparison Engine</a></li>
+                    <li><a href="pm_process.html">Process Generator</a></li>
+                </ul>
+                <a href="pm_start.html" class="cta-button">Start Today</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Standards <span class="accent">Library</span></h1>
+            <p>Access PRINCE2, ISO 21502, and PMBOK 7th Edition in multiple formats with advanced search and bookmarking capabilities.</p>
+        </div>
+    </section>
+
+    <!-- Standards Library Section -->
+    <section class="library">
+        <div class="container">
+            <div class="section-title">
+                <h2>Available Standards</h2>
+                <p>Browse our comprehensive collection of project management standards</p>
+            </div>
+            
+            <div class="standards-grid">
+                <!-- PRINCE2 Card -->
+                <div class="standard-card">
+                    <div class="standard-header">
+                        <h3>PRINCE2</h3>
+                        <p>Projects IN Controlled Environments</p>
+                    </div>
+                    <div class="standard-content">
+                        <div class="standard-description">
+                            <p>PRINCE2 is a structured project management method that emphasizes dividing projects into manageable and controllable stages. It is a process-based approach for effective project management, used extensively by the UK government and widely recognized and used in the private sector, both in the UK and internationally.</p>
+                        </div>
+                        <div class="standard-actions">
+                            <button class="action-btn" onclick="openStandard('PRINCE2')">
+                                <i class="fas fa-book-open"></i> Read Online
+                            </button>
+                            <button class="action-btn" onclick="downloadStandard('PRINCE2')">
+                                <i class="fas fa-download"></i> Download PDF
+                            </button>
+                            <button class="action-btn" onclick="bookmarkStandard('PRINCE2')">
+                                <i class="fas fa-bookmark"></i> Bookmark
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PMBOK Card -->
+                <div class="standard-card">
+                    <div class="standard-header">
+                        <h3>PMBOK® Guide 7th Ed.</h3>
+                        <p>A Guide to the Project Management Body of Knowledge</p>
+                    </div>
+                    <div class="standard-content">
+                        <div class="standard-description">
+                            <p>The PMBOK® Guide is PMI's flagship publication and is a fundamental resource for effective project management in any industry. The 7th edition has been updated to reflect the full range of development approaches (predictive, adaptive, hybrid, etc.) and provides a system for value delivery.</p>
+                        </div>
+                        <div class="standard-actions">
+                            <button class="action-btn" onclick="openStandard('PMBOK7')">
+                                <i class="fas fa-book-open"></i> Read Online
+                            </button>
+                            <button class="action-btn" onclick="downloadStandard('PMBOK7')">
+                                <i class="fas fa-download"></i> Download PDF
+                            </button>
+                            <button class="action-btn" onclick="bookmarkStandard('PMBOK7')">
+                                <i class="fas fa-bookmark"></i> Bookmark
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ISO 21502 Card -->
+                <div class="standard-card">
+                    <div class="standard-header">
+                        <h3>ISO 21502</h3>
+                        <p>Guidance on Project Management</p>
+                    </div>
+                    <div class="standard-content">
+                        <div class="standard-description">
+                            <p>ISO 21502 provides guidance on concepts and processes of project management that are important for, and have impact on, the performance of projects. This document is applicable to any organization, including public, private or community organizations, and to any project, regardless of purpose, outputs, outcomes or benefits.</p>
+                        </div>
+                        <div class="standard-actions">
+                            <button class="action-btn" onclick="openStandard('ISO21502')">
+                                <i class="fas fa-book-open"></i> Read Online
+                            </button>
+                            <button class="action-btn" onclick="downloadStandard('ISO21502')">
+                                <i class="fas fa-download"></i> Download PDF
+                            </button>
+                            <button class="action-btn" onclick="bookmarkStandard('ISO21502')">
+                                <i class="fas fa-bookmark"></i> Bookmark
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Launch Agency</h3>
+                    <p>We are a full-service digital agency committed to creating innovative solutions for our clients.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="pm_index.html">Home</a>
+                    <a href="pm_library.html">Standards Library</a>
+                    <a href="pm_comparison.html">Comparison Engine</a>
+                    <a href="pm_process.html">Process Generator</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> info@launchagency.com</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Launch Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to handle standard actions
+        function openStandard(standard) {
+            alert(`Opening ${standard} in online reader...`);
+            // In a real implementation, this would open the standard in a reader interface
+        }
+
+        function downloadStandard(standard) {
+            alert(`Downloading ${standard} PDF...`);
+            // In a real implementation, this would initiate a download
+        }
+
+        function bookmarkStandard(standard) {
+            alert(`Bookmarked ${standard}`);
+            // In a real implementation, this would save to user's bookmarks
+        }
+        
+        // Add animation to cards on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const standardCards = document.querySelectorAll('.standard-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            standardCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

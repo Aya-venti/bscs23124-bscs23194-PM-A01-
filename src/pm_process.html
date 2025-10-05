@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Generator | Launch Agency</title>
+    <link rel="stylesheet" href="pm_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .generator-controls {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .project-type-select {
+            min-width: 300px;
+        }
+        
+        .project-type-select select {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+        
+        .process-output {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .process-step {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .process-step:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .step-number {
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content h4 {
+            margin-bottom: 10px;
+        }
+        
+        .step-content p {
+            color: var(--gray);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="pm_index.html" class="logo">Launch</a>
+                <ul class="nav-links">
+                    <li><a href="pm_library.html">Standards Library</a></li>
+                    <li><a href="pm_comparison.html">Comparison Engine</a></li>
+                    <li><a href="pm_process.html" class="active">Process Generator</a></li>
+                    <li><a href="pm_contact.html">Contact</a></li>
+                </ul>
+                <a href="pm_start.html" class="cta-button">Start Today</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Process <span class="accent">Generator</span></h1>
+            <p>Get tailored process recommendations based on your project type with detailed phase guidance.</p>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="generator-controls">
+                <div class="project-type-select">
+                    <select id="projectTypeSelect">
+                        <option value="it">IT Project</option>
+                        <option value="construction">Construction Project</option>
+                        <option value="healthcare">Healthcare Project</option>
+                        <option value="manufacturing">Manufacturing Project</option>
+                    </select>
+                </div>
+                <button class="btn-primary" onclick="showTailoredProcess()">Generate Process</button>
+            </div>
+            
+            <div class="process-output" id="processOutput">
+                <h3>Select a project type and click "Generate Process" to see tailored recommendations.</h3>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Launch Agency</h3>
+                    <p>We are a full-service digital agency committed to creating innovative solutions for our clients.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="pm_index.html">Home</a>
+                    <a href="pm_library.html">Standards Library</a>
+                    <a href="pm_comparison.html">Comparison Engine</a>
+                    <a href="pm_process.html">Process Generator</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Design Street, Creative City</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@launchagency.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Launch Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="pm_app.js"></script>
+</body>
+</html>
